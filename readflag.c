@@ -17,13 +17,13 @@ int main(int argc, char* argv[]) {
 
     struct stat stat_data;
     if (stat(argv[1], &stat_data) < 0) {  // to get information about this file
-        fprintf(stderr, "Failed to stat %s: %s\n", argv[1], strerror(errno));
+        fprintf(stderr, "Cannot be started %s: %s\n", argv[1], strerror(errno));
         exit(1);
     }
 
     if(stat_data.st_uid == 0) // checks the file you spcified, own by the root
     {
-        fprintf(stderr, "File %s is owned by root\n", argv[1]);
+        fprintf(stderr, "File %s Permisson Denied!\nFile is a root file\n", argv[1]);
         exit(1);
     }
 
@@ -31,7 +31,7 @@ int main(int argc, char* argv[]) {
     
     if(fd <= 0)
     {
-        fprintf(stderr, "Couldn't open %s\n", argv[1]);
+        fprintf(stderr, "File cannot be open %s\n", argv[1]);
         exit(1);
     }
 
