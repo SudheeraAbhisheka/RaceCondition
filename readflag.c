@@ -39,7 +39,4 @@ int main(int argc, char* argv[]) {
         size = read(fd, buf, 256);
         write(1, buf, size);
     } while(size>0); 
-    // "$(pwd)"
-    // ln -s "$(pwd)"/flag hax/flag
-
 }
